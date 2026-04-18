@@ -1,6 +1,6 @@
 # ROS2_JuanMa — Puzzlebot Navigation Project
 
-**TE3003B · Semestre Ene–Jun 2026**
+**TE3003B · Semestre Feb–Jun 2026**
 
 Autonomous navigation project for the Puzzlebot (Jetson Lidar Edition) using ROS 2 Humble and Gazebo Classic. Includes SLAM-based mapping and Nav2-based autonomous navigation over a custom maze environment.
 
