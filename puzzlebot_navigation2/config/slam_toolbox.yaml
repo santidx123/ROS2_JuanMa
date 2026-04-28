@@ -1,7 +1,7 @@
 slam_toolbox:
   ros__parameters:
 
-    use_sim_time: false
+    use_sim_time: true
     use_odometry: true
     solver_plugin: solver_plugins::CeresSolver  
     ceres_linear_solver: DENSE_SCHUR  

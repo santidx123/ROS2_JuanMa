@@ -6,32 +6,12 @@
 #  direction: GZ_TO_ROS
 #  lazy: false # Determines whether connections are created immediately at startup (when false) or only when data is actually requested by a subscriber (when true), helping to conserve system resources at the cost of potential initial delays in data flow.
 
-- ros_topic_name: "camera_info"
-  gz_topic_name: "camera_info"
-  ros_type_name: "sensor_msgs/msg/CameraInfo"
-  gz_type_name: "gz.msgs.CameraInfo"
-  direction: GZ_TO_ROS
-  lazy: false
-
-- ros_topic_name: "VelocityEncL"
-  gz_topic_name: "VelocityEncL"
-  ros_type_name: "std_msgs/msg/Float32"
-  gz_type_name: "gz.msgs.Float"
-  direction: GZ_TO_ROS
-  lazy: false
-
-- ros_topic_name: "VelocityEncR"
-  gz_topic_name: "VelocityEncR"
-  ros_type_name: "std_msgs/msg/Float32"
-  gz_type_name: "gz.msgs.Float"
-  direction: GZ_TO_ROS
-  lazy: false
-
 - ros_topic_name: "joint_states"
   gz_topic_name: "joint_states"
   ros_type_name: "sensor_msgs/msg/JointState"
   gz_type_name: "gz.msgs.Model"
   direction: GZ_TO_ROS
+  lazy: false
 
 - ros_topic_name: "tf"
   gz_topic_name: "tf"
@@ -40,14 +20,14 @@
   direction: GZ_TO_ROS
   lazy: false
 
-- ros_topic_name: "ground_truth"
-  gz_topic_name: "ground_truth"
+- ros_topic_name: "odom"
+  gz_topic_name: "odom"
   ros_type_name: "nav_msgs/msg/Odometry"
   gz_type_name: "gz.msgs.Odometry"
   direction: GZ_TO_ROS
   lazy: false
 
-  # LIDAR configuration
+# LiDAR
 - ros_topic_name: "scan"
   gz_topic_name: "scan"
   ros_type_name: "sensor_msgs/msg/LaserScan"
@@ -55,15 +35,7 @@
   direction: GZ_TO_ROS
   lazy: false
 
-  # TOF configuration
-- ros_topic_name: "tof_scan"
-  gz_topic_name: "tof_scan"
-  ros_type_name: "sensor_msgs/msg/LaserScan"
-  gz_type_name: "gz.msgs.LaserScan"
-  direction: GZ_TO_ROS
-  lazy: false
-
-# Sending velocity commands from ROS 2 to Gazebo
+# Velocity commands
 - ros_topic_name: "cmd_vel"
   gz_topic_name: "cmd_vel"
   ros_type_name: "geometry_msgs/msg/Twist"
@@ -71,7 +43,7 @@
   direction: ROS_TO_GZ
   lazy: false
 
-# Clock configuration
+# Clock
 - ros_topic_name: "clock"
   gz_topic_name: "clock"
   ros_type_name: "rosgraph_msgs/msg/Clock"
