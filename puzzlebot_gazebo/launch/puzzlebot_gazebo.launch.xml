@@ -1,17 +1,15 @@
 <launch>
     <let name="world_path" value="$(find-pkg-share puzzlebot_gazebo)/worlds/maze.world"/>
-    <let name="urdf_path" value="$(find-pkg-share puzzlebot_description)/urdf/mcr2_robots/puzzlebot_jetson_lidar_ed.xacro"/>
-    <let name="bridge_config_path" value="$(find-pkg-share puzzlebot_gazebo)/config/gazebo_bridge.yaml"/>
-
+   
     <arg name="use_sim_time" default="true"/>
     <arg name="headless" default="false"/>
-    <arg name="x_pose" default="0.0"/>
+    <arg name="x_pose" default="1.35"/>
     <arg name="y_pose" default="0.0"/>
 
-    <node pkg="robot_state_publisher" exec="robot_state_publisher" output="screen">
-        <param name="robot_description" value="$(command 'xacro $(var urdf_path)')"/>
-        <param name="use_sim_time" value="$(var use_sim_time)"/>
-    </node>
+    <include file="$(find-pkg-share puzzlebot_description)/launch/puzzlebot_description.launch.xml">
+        <arg name="use_sim_time" value="$(var use_sim_time)"/>
+        <arg name="rviz" value="false"/>
+    </include>
 
     <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
         <arg name="world" value="$(var world_path)"/>
@@ -21,6 +19,4 @@
     <node pkg="gazebo_ros" exec="spawn_entity.py" output="screen"
         args="-topic robot_description -entity puzzlebot -x $(var x_pose) -y $(var y_pose)"/>
 
-    <node pkg="ros_gz_bridge" exec="parameter_bridge" output="screen"
-        args="--ros-args -p config_file:=$(var bridge_config_path)"/>
 </launch>

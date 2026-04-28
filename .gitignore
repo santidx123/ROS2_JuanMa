@@ -1,0 +1,8 @@
+build/
+install/
+log/
+.colcon/
+.colcon_ignore
+.vscode/
+*.pyc
+__pycache__/
