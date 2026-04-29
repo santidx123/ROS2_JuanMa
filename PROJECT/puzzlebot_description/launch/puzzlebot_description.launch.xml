@@ -1,5 +1,5 @@
 <launch>
-    <arg name="rviz" default="true"/>
+    <arg name="rviz" default="false"/>
     <arg name="gazebo" default="false"/>
     <arg name="joint_gui" default="false"/>
     <arg name="use_sim_time" default="false"/>
