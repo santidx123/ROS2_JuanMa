@@ -5,7 +5,7 @@
     <let name="gz_sim_launch_path" value="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py" /> 
     
     <arg name="use_sim_time" default="true"/>
-    <arg name="headless" default="false"/>
+    <arg name="headless" default="true"/>
     <arg name="x_pose" default="1.35"/>
     <arg name="y_pose" default="0.0"/>
     
